@@ -4,20 +4,27 @@
 
 using namespace std;
 
-int main(){
-  cout << "Printing solutions of questions" << endl;
-
-  isunique("cata");
-  return 0;
-}
-
 //determine if the string has unique characters
 bool isUnique(string s){
-    //unordered_map<string, int> stringkey;
 
+    unordered_map<char, int> map;
     for (char& c : s){
-      cout << c << endl;
+
+      if (map.find(c) != map.end()) {
+        pair<char,int> letter (c,0);
+        map.insert(letter);
+      }
+      else {
+        return false;
+      }
     }
     return true;
 
+}
+
+int main(){
+  cout << "Printing solutions of questions" << endl;
+
+  cout << isUnique("rawfdk") << endl;
+  return 0;
 }
